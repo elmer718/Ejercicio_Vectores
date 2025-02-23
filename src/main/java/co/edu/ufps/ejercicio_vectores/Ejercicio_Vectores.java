@@ -4,6 +4,8 @@
 
 package co.edu.ufps.ejercicio_vectores;
 
+import org.apache.commons.lang3.time.StopWatch;
+
 /**
  * @author Elmer Fabian Rodriguez Cardenas - 1151554
  * @author Jeisson Javier Chacon Parada - 1151594
@@ -34,7 +36,7 @@ public class Ejercicio_Vectores {
         }
         if (v1.length == 0 || v2.length == 0) {
             System.out.println("Uno o ambos vectores están vacíos.");
-            return new int[0];
+            return null;
         }
         if (v1.length < 0 || v2.length < 0) { // Aunque nunca debería pasar
             System.out.println("Tamaño de array inválido (negativo).");
@@ -78,12 +80,13 @@ public class Ejercicio_Vectores {
         }
         System.out.println("]");
         
-        System.out.print("vic: [ ");
-        for (int i = 0; i < vic.length; i++) {
-            System.out.print(vic[i]+" ");
+        if (vic != null) {
+            System.out.print("vic: [ ");
+            for (int i = 0; i < vic.length; i++) {
+                System.out.print(vic[i]+" ");
+            }
+            System.out.println("]");
         }
-        System.out.println("]");
-        
         //----- Instancia 2 -----
         int[] a2 = {124,-456,1214,52563,-7541,74123,145,7846,-7456};
         int[] b2 = {-456,52563,1456,8976,-567,145,-7541,167984,9536};
@@ -98,14 +101,16 @@ public class Ejercicio_Vectores {
         }
         System.out.println("]");
         
-        System.out.print("vic2: [ ");
-        for (int i = 0; i < vic2.length; i++) {
-            System.out.print(vic2[i]+" ");
+        if (vic2 != null) {
+            System.out.print("vic2: [ ");
+            for (int i = 0; i < vic2.length; i++) {
+                System.out.print(vic2[i]+" ");
+            }
+            System.out.println("]");
         }
-        System.out.println("]");
-        
         //----- Instancia 3 -----
-        int[] a3 = {56,120,79,-65,72,-25,-16};
+        //int[] a3 = {56,120,79,-65,72,-25,-16};
+        int[] a3 ={};
         int[] b3 = {120,-16,-65,72,79,56,-25};
         
         int[] vi3 = ej.Interseccion(a3, b3);
@@ -117,12 +122,48 @@ public class Ejercicio_Vectores {
             System.out.print(vi3[i]+" ");
         }
         System.out.println("]");
+         
         
-        System.out.print("vic3: [ ");
-        for (int i = 0; i < vic3.length; i++) {
-            System.out.print(vic3[i]+" ");
+        if (vic3 != null) {
+            System.out.print("vic3: [ ");
+            for (int i = 0; i < vic3.length; i++) {
+                System.out.print(vic3[i]+" ");
+            }
+            System.out.println("]");
         }
-        System.out.println("]");
+        
+        //----- medicion del tiempo de ejecucion -----
+        StopWatch watch = new StopWatch();
+//        
+//        watch.start();
+//        int[] resultado = ej.Interseccion(a, b);
+//        watch.stop();
+//        System.out.println("Tiempo de ejecucion Metodo 1; instancia 1: " + watch.getNanoTime() + " ns");
+        
+//        watch.start();
+//        int[] resultado2 = ej.Interseccion(a2, b2);
+//        watch.stop();
+//        System.out.println("Tiempo de ejecucion Metodo 1: instancia 2: " + watch.getNanoTime() + " ns");
+//        
+//        watch.start();
+//        int[] resultado3 = ej.Interseccion(a3, b3);
+//        watch.stop();
+//        System.out.println("Tiempo de ejecucion Metodo 1: instancia 3: " + watch.getNanoTime() + " ns");
+//        
+//        watch.start();
+//        int[] resultado = ej.InterseccionCompletitud(a, b);
+//        watch.stop();
+//        System.out.println("Tiempo de ejecucion Metodo 2; instancia 1: " + watch.getNanoTime() + " ns");
+        
+//        watch.start();
+//        int[] resultado2 = ej.InterseccionCompletitud(a2, b2);
+//        watch.stop();
+//        System.out.println("Tiempo de ejecucion Metodo 2: instancia 2: " + watch.getNanoTime() + " ns");
+//        
+        watch.start();
+        int[] resultado3 = ej.InterseccionCompletitud(a3, b3);
+        watch.stop();
+        System.out.println("Tiempo de ejecucion Metodo 2: instancia 3: " + watch.getNanoTime() + " ns");
         
     }
 }
